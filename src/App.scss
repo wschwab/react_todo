@@ -297,6 +297,8 @@ header {
     &__middle {
         margin-top: 20px;
         margin-bottom: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         border-bottom: $generic-border;
         padding-left: 10px;
@@ -351,11 +353,11 @@ header {
                     }
                 }
             }
-        }
 
-        &.active, &:hover {
-            font-weight: bold;
-            background-color: white;
+            &.active, &:hover {
+                font-weight: bold;
+                background-color: white;
+            }
         }
     }
 }

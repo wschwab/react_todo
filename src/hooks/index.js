@@ -31,6 +31,7 @@ export const useTasks = selectedProject => {
                 : newTasks.filter(task => task.archived !== true)
             )
 
+            console.log("newTasks ", newTasks)
             setArchivedTasks(newTasks.filter(task => task.archived !== false))
         })
 
