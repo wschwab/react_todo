@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelectedProjectValue, useProjectsValue } from '../context'
+import { IndividualProject } from './IndividualProject'
 
 export const Projects = ({ activeValue = null }) => {
     const [active, setActive] = useState(activeValue)
@@ -9,7 +10,7 @@ export const Projects = ({ activeValue = null }) => {
     return (
         projects &&
         projects.map(project => (
-            <li key={project.projectId} data-doc-id={project.docId} data-testid="project-action" className={
+            <li key={project.projectId} data-doc-id={project.docId} data-testid="project-action-parent" className={
                 active === project.projectId
                 ? 'active sidebar__project'
                 : 'sidebar__project'
@@ -20,7 +21,7 @@ export const Projects = ({ activeValue = null }) => {
                 setSelectedProject(project.projectId)
             }}
             >
-            Project
+                <IndividualProject project={project} />
             </li>
         ))
     )
