@@ -56,7 +56,7 @@ export const Sidebar = () => {
                 </li>
             </ul>
 
-            <div className="sidebar__middle">
+            <div className="sidebar__middle" onClick={() => setShowProjects(!showProjects)}>
                 <span>
                     <FaChevronDown className={!showProjects ? 'hidden-projects' : undefined} />
                 </span>
