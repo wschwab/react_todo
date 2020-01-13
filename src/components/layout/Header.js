@@ -14,37 +14,48 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li className="settings__add">
-                            <button
-                                data-testid="quick-add-task-action"
-                                type="button"
-                                onClick={() => {
-                                    setShowQuickAddTask(true)
-                                    setShouldShowMain(true)
-                                }}
-                            >
-                            +
-                            </button>
+                        <li className="settings__add"
+                            data-testid="quick-add-task-action"
+                            onClick={() => {
+                                setShowQuickAddTask(true)
+                                setShouldShowMain(true)
+                            }}
+                        >
+                        +
                         </li>
-                        <li className="settings__darkmode">
-                            <button
-                                data-testid="darkmode-action"
-                                type="button"
-                                onClick={() => setDarkMode(!darkMode)}
-                            >
-                                <FaPizzaSlice />
-                            </button>
+                        <li className="settings__darkmode"
+                            data-testid="darkmode-action"
+                            onClick={() => setDarkMode(!darkMode)}
+                        >
+                            <FaPizzaSlice />
                         </li>
                     </ul>
                 </div>
             </nav>
 
             <AddTask
-                showAddTask={false}
+                showAddTaskMain={false}
                 shouldShowMain={shouldShowMain}
-                showQuickAddTask={false}
-                showAddTaskMain={setShowQuickAddTask}
+                showQuickAddTask={showQuickAddTask}
+                setShowQuickAddTask={setShowQuickAddTask}
             />
         </header>
     )
 }
+
+
+// <button
+//     data-testid="quick-add-task-action"
+//     type="button"
+//     onClick={() => {
+//         setShowQuickAddTask(true)
+//         setShouldShowMain(true)
+//     }}
+// >
+// </button>
+// <button
+//     data-testid="darkmode-action"
+//     type="button"
+//     onClick={() => setDarkMode(!darkMode)}
+// >
+// </button>

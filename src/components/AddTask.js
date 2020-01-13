@@ -80,7 +80,7 @@ export const AddTask = ({
                         </div>
                     )}
                     <ProjectOverlay setProject={ setProject } showProjectOverlay={showProjectOverlay } setShowProjectOverlay={ setShowProjectOverlay } />
-                    <p>TaskDate</p>
+                    <TaskDate setTaskDate={setTaskDate} showTaskDate={showTaskDate} setShowTaskDate={setShowTaskDate} />
                     <input
                         className="add-task__content"
                         data-testid="add-task-content"
@@ -92,7 +92,10 @@ export const AddTask = ({
                         type="button"
                         className="add-task__submit"
                         data-testid="add-task"
-                        onClick={() => addTask()}
+                        onClick={() => showQuickAddTask
+                            ? addTask() && setShowQuickAddTask(false) 
+                            : addTask()
+                        }
                     >
                         Add Task
                     </button>
