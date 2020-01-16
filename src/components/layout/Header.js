@@ -42,20 +42,3 @@ export const Header = ({ darkMode, setDarkMode }) => {
         </header>
     )
 }
-
-
-// <button
-//     data-testid="quick-add-task-action"
-//     type="button"
-//     onClick={() => {
-//         setShowQuickAddTask(true)
-//         setShouldShowMain(true)
-//     }}
-// >
-// </button>
-// <button
-//     data-testid="darkmode-action"
-//     type="button"
-//     onClick={() => setDarkMode(!darkMode)}
-// >
-// </button>

@@ -18,14 +18,14 @@ export const IndividualProject = ({ project }) => {
     }
 
     return (
-        <div>
+        <>
             <span className="sidebar__dot">•</span>
             <span className="sidebar__project-name">{project.name}</span>
             <span className="sidebar__project-delete" data-testid="delete-project" onClick={() => setShowConfirm(!showConfirm)}>
                 <FaTrashAlt />
                 {showConfirm && (
                     <div className="project-delete-modal">
-                        <span className="project-delete-modal__inner">
+                        <div className="project-delete-modal__inner">
                             <p>Are you sure you want to delete this project?</p>
                             <button
                                 type="button"
@@ -34,10 +34,10 @@ export const IndividualProject = ({ project }) => {
                                 Delete
                             </button>
                             <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
-                        </span>
+                        </div>
                     </div>
                 )}
             </span>
-        </div>
+        </>
     )
 }

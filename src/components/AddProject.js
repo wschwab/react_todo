@@ -27,7 +27,7 @@ export const AddProject = ({ shouldShow = false }) => {
         return (
             <div className="add-project" data-testid="add-project">
                 {show && (
-                    <div className="add-project__input">
+                    <div className="add-project__input" data-testid="add-project-inner">
                         <input value={projectName} onChange={e => setProjectName(e.target.value)}
                             className="add-project__name" data-testid="project-name" type="text"
                             placeholder="Name your project" />
@@ -36,7 +36,7 @@ export const AddProject = ({ shouldShow = false }) => {
                             Add Project
                         </button>
                         <span data-testid="hide-project-overlay" className="add-project__cancel"
-                            onClick={() => setShow(false)}>
+                            onClick={() => setShow(false)} role="button" tabIndex={0}>
                             Cancel
                         </span>
                     </div>

@@ -17,7 +17,8 @@ export const Tasks = () => {
         projectName = getCollatedTitle(collatedTasks, selectedProject).name
     }
 
-    if(projects.length > 0
+    if(projects
+        && projects.length > 0
         && selectedProject
         && !collatedTasksExist(selectedProject)
         ) {
@@ -36,8 +37,8 @@ export const Tasks = () => {
 
             <ul className="tasks__list">
                 {tasks.map(task => (
-                    <li key={`${tasks.id}`}>
-                        <Checkbox id={task.id} />
+                    <li key={`${task.id}`}>
+                        <Checkbox id={task.id} taskDesc={task.task} />
                         <span>{task.task}</span>
                     </li>
                 ))}

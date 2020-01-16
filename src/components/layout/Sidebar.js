@@ -12,7 +12,7 @@ export const Sidebar = () => {
     return (
         <div className="sidebar" data-testid="sidebar">
             <ul className="sidebar__generic">
-                <li data-testid="inbox" className={active === "inbox" ? 'active' : undefined}>
+                <li data-testid="inbox" className={active === 'inbox' ? 'active' : undefined}>
                     <div
                         data-testid="inbox-action"
                         aria-label="Show inbox tasks"
@@ -26,7 +26,7 @@ export const Sidebar = () => {
                         <span><FaInbox /></span><span>Inbox</span>
                     </div>
                 </li>
-                <li data-testid="today" className={active === "today" ? 'active' : undefined}>
+                <li data-testid="today" className={active === 'today' ? 'active' : undefined}>
                     <div
                         data-testid="today-action"
                         aria-label="Show today's tasks"
@@ -40,7 +40,7 @@ export const Sidebar = () => {
                         <span><FaRegCalendar /></span><span>Today</span>
                     </div>
                 </li>
-                <li data-testid="next_7" className={active === "next_7" ? 'active' : undefined}>
+                <li data-testid="next_7" className={active === 'next_7' ? 'active' : undefined}>
                     <div
                         data-testid="next_7-action"
                         aria-label="Show tasks for the next 7 days"
@@ -56,7 +56,8 @@ export const Sidebar = () => {
                 </li>
             </ul>
 
-            <div className="sidebar__middle" onClick={() => setShowProjects(!showProjects)}>
+            <div className="sidebar__middle" role="button"
+                onClick={() => setShowProjects(!showProjects)}>
                 <span>
                     <FaChevronDown className={!showProjects ? 'hidden-projects' : undefined} />
                 </span>

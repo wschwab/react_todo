@@ -64,7 +64,7 @@ export const AddTask = ({
                     {showQuickAddTask && (
                         <div>
                             <div data-testid="quick-add-task">
-                                <h2>Quick Add Task</h2>
+                                <h2 className="header">Quick Add Task</h2>
                                 <span
                                     className="add-task__cancel-x"
                                     data-testid="add-task-quick-cancel"
@@ -79,7 +79,7 @@ export const AddTask = ({
                             </div>
                         </div>
                     )}
-                    <ProjectOverlay setProject={ setProject } showProjectOverlay={showProjectOverlay } setShowProjectOverlay={ setShowProjectOverlay } />
+                    <ProjectOverlay setProject={setProject} showProjectOverlay={showProjectOverlay} setShowProjectOverlay={setShowProjectOverlay} />
                     <TaskDate setTaskDate={setTaskDate} showTaskDate={showTaskDate} setShowTaskDate={setShowTaskDate} />
                     <input
                         className="add-task__content"
@@ -93,7 +93,7 @@ export const AddTask = ({
                         className="add-task__submit"
                         data-testid="add-task"
                         onClick={() => showQuickAddTask
-                            ? addTask() && setShowQuickAddTask(false) 
+                            ? addTask() && setShowQuickAddTask(false)
                             : addTask()
                         }
                     >
@@ -112,9 +112,9 @@ export const AddTask = ({
                         </span>
                     )}
                     <span
-                        className="add-task__cancel"
+                        className="add-task__project"
                         data-testid="show-project-overlay"
-                        onClick={() => setShowTaskDate(!showTaskDate)}
+                        onClick={() => setShowProjectOverlay(!showProjectOverlay)}
                         tabIndex={0}
                         role="button"
                     >
@@ -124,6 +124,8 @@ export const AddTask = ({
                         className="add-task__date"
                         data-testid="show-task-date-overlay"
                         onClick={() => setShowTaskDate(!showTaskDate)}
+                        tabIndex={0}
+                        role="button"
                     >
                         <FaRegCalendarAlt />
                     </span>
