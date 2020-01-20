@@ -73,6 +73,8 @@ export const AddTask = ({
                                         setShowProjectOverlay(false)
                                         setShowQuickAddTask(false)
                                     }}
+                                    tabIndex={0}
+                                    role="button"
                                 >
                                     X
                                 </span>
