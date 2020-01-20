@@ -5,6 +5,7 @@ import { firebase } from '../firebase'
 import { useSelectedProjectValue } from '../context'
 import { ProjectOverlay } from './ProjectOverlay'
 import { TaskDate } from './TaskDate'
+import PropTypes from 'prop-types'
 
 export const AddTask = ({
     showAddTaskMain= true,
@@ -45,15 +46,23 @@ export const AddTask = ({
                 setShowMain('')
                 setShowProjectOverlay(false)
             })
-    )
+        )
     }
 
     return (
-        <div className={setShowQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
-            data-testid="add-task-comp">
+        <div
+            className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+            data-testid="add-task-comp"
+        >
             {showAddTaskMain && (
-                <div className="add-task__shallow" data-testid="show-main-action"
-                    onClick={() => setShowMain(!showMain)}>
+                <div
+                    className="add-task__shallow"
+                    data-testid="show-main-action"
+                    onClick={() => setShowMain(!showMain)}
+                    tabIndex={0}
+                    aria-label="Add task"
+                    role="button"
+                >
                     <span className="add-task__plus">+</span>
                     <span className="add-task__text">Add Task</span>
                 </div>
@@ -62,7 +71,7 @@ export const AddTask = ({
             {(showMain || showQuickAddTask) && (
                 <div className="add-task__main" data-testid="add-task-main">
                     {showQuickAddTask && (
-                        <div>
+                        <>
                             <div data-testid="quick-add-task">
                                 <h2 className="header">Quick Add Task</h2>
                                 <span
@@ -73,16 +82,29 @@ export const AddTask = ({
                                         setShowProjectOverlay(false)
                                         setShowQuickAddTask(false)
                                     }}
+                                    onKeyDown={() => {
+                                        setShowMain(false)
+                                        setShowProjectOverlay(false)
+                                        setShowQuickAddTask(false)
+                                    }}
                                     tabIndex={0}
                                     role="button"
                                 >
                                     X
                                 </span>
                             </div>
-                        </div>
+                        </>
                     )}
-                    <ProjectOverlay setProject={setProject} showProjectOverlay={showProjectOverlay} setShowProjectOverlay={setShowProjectOverlay} />
-                    <TaskDate setTaskDate={setTaskDate} showTaskDate={showTaskDate} setShowTaskDate={setShowTaskDate} />
+                    <ProjectOverlay
+                        setProject={setProject}
+                        showProjectOverlay={showProjectOverlay}
+                        setShowProjectOverlay={setShowProjectOverlay}
+                    />
+                    <TaskDate
+                        setTaskDate={setTaskDate}
+                        showTaskDate={showTaskDate}
+                        setShowTaskDate={setShowTaskDate}
+                    />
                     <input
                         className="add-task__content"
                         data-testid="add-task-content"
@@ -109,6 +131,8 @@ export const AddTask = ({
                                 setShowMain(false)
                                 setShowProjectOverlay(false)
                             }}
+                            tabIndex={0}
+                            role="button"
                         >
                             Cancel
                         </span>
@@ -117,6 +141,7 @@ export const AddTask = ({
                         className="add-task__project"
                         data-testid="show-project-overlay"
                         onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+                        onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
                         tabIndex={0}
                         role="button"
                     >
@@ -135,4 +160,11 @@ export const AddTask = ({
             )}
         </div>
     )
+}
+
+AddTask.propTypes = {
+    showAddTaskMain: PropTypes.bool,
+    shouldShowMain: PropTypes.bool,
+    showQuickAddTask: PropTypes.bool,
+    setShowQuickAddTask: PropTypes.func
 }
