@@ -22,6 +22,10 @@ export const Sidebar = () => {
                             setActive('inbox')
                             setSelectedProject('INBOX')
                         }}
+                        onKeyDown={() => {
+                            setActive('inbox')
+                            setSelectedProject('INBOX')
+                        }}
                     >
                         <span><FaInbox /></span><span>Inbox</span>
                     </div>
@@ -36,6 +40,10 @@ export const Sidebar = () => {
                             setActive('today')
                             setSelectedProject('TODAY')
                         }}
+                        onKeyDown={() => {
+                            setActive('today')
+                            setSelectedProject('TODAY')
+                        }}
                     >
                         <span><FaRegCalendar /></span><span>Today</span>
                     </div>
@@ -47,6 +55,10 @@ export const Sidebar = () => {
                         tabIndex={0}
                         role="button"
                         onClick={() => {
+                            setActive('next_7')
+                            setSelectedProject('NEXT_7')
+                        }}
+                        onKeyDown={() => {
                             setActive('next_7')
                             setSelectedProject('NEXT_7')
                         }}
