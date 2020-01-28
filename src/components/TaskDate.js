@@ -40,9 +40,9 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => show
                         setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'))
                     }}
                     data-testid="task-date-tomorrow"
+                    role="button"
                     tabIndex={0}
                     aria-label="Select tomorrow as task date"
-                    role="button"
                 >
                     <span>
                         <FaSun />
