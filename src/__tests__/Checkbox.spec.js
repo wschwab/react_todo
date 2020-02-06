@@ -24,5 +24,21 @@ describe('<Checkbox />', () => {
             )
             expect(queryByTestId('checkbox-action')).toBeTruthy()
         })
+
+        it('renders task checkbox and accepts clicking', () => {
+            const { queryByTestId } = render(
+                <Checkbox id="1" taskDesc="Finish the tutorial" />
+            )
+            expect(queryByTestId('checkbox-action')).toBeTruthy()
+            fireEvent.click(queryByTestId('checkbox-action'))
+        })
+
+        it('renders task checkbox and accepts keyDown', () => {
+            const { queryByTestId } = render(
+                <Checkbox id="1" taskDesc="Finish the tutorial" />
+            )
+            expect(queryByTestId('checkbox-action')).toBeTruthy()
+            fireEvent.keyDown(queryByTestId('checkbox-action'))
+        })
     })
 })
