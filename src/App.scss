@@ -409,11 +409,13 @@ header {
 
 /* Show Confirm Delete */
 .project-delete-modal {
-    position: relative;
+    position: fixed;
+    width: 200px;
 
     &__inner {
         @include box-overlay();
         z-index: 99;
+        flex-wrap: wrap;
         width: 200px;
         padding: 10px;
         top: 10px;
@@ -430,10 +432,12 @@ header {
 
         button {
             @include btn('50px');
+            float:left;
         }
 
         span {
             @include cancel();
+            float: right;
             font-weight: normal;
         }
     }

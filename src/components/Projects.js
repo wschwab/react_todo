@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelectedProjectValue, useProjectsValue } from '../context'
 import { IndividualProject } from './IndividualProject'
+import PropTypes from 'prop-types'
 
 export const Projects = ({ activeValue = null }) => {
     const [active, setActive] = useState(activeValue)
@@ -39,4 +40,8 @@ export const Projects = ({ activeValue = null }) => {
             </li>
         ))
     )
+}
+
+Projects.propTypes = {
+    activeValue: PropTypes.bool
 }

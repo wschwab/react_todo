@@ -59,7 +59,12 @@ export const AddProject = ({ shouldShow = false }) => {
                     </div>
                 )}
                 <span className="add-project__plus">+</span>
-                <span className="add-project__text" data-testid="add-project-action" onClick={() => setShow(!show)}>
+                <span
+                    className="add-project__text"
+                    data-testid="add-project-action"
+                    onClick={() => setShow(!show)}
+                    onKeyDown={() => setShow(!show)}
+                >
                     Add Project
                 </span>
             </div>

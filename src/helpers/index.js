@@ -16,14 +16,14 @@ export const generatePushId = (() => {
         let now = new Date().getTime()
 
         const timestampChars = new Array(8)
-        for (let i = 7; i >= 0; i--){
+        for (var i = 7; i >= 0; i--){
             timestampChars[i] = PUSH_CHARS.charAt(now % 64)
             now = Math.floor(now / 64)
         }
 
         let id = timestampChars.join('')
 
-        for (let i = 0; i < 12; i++) {
+        for (i = 0; i < 12; i++) {
             id += PUSH_CHARS.charAt(lastRandChars[i])
         }
 
