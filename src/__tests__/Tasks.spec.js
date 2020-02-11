@@ -71,4 +71,15 @@ describe('<Tasks />', () => {
         expect(queryByTestId('tasks')).toBeTruthy()
         expect(queryByTestId('project-name').textContent).toBe('Inbox')
     })
+
+    it('does not render projects if there are no projects', () => {
+        useSelectedProjectValue.mockImplementation(() => ({
+            setSelectedProject: jest.fn(() => '2'),
+            selectedProject: '2'
+        }))
+
+        const { queryByTestId } = render(<Tasks />)
+        expect(queryByTestId('tasks')).toBeTruthy()
+        expect(queryByTestId('project-name').textContent).toBe('')
+    })
 })

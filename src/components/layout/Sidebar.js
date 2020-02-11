@@ -68,8 +68,14 @@ export const Sidebar = () => {
                 </li>
             </ul>
 
-            <div className="sidebar__middle" role="button"
-                onClick={() => setShowProjects(!showProjects)}>
+            <div
+                className="sidebar__middle"
+                role="button"
+                onClick={() => setShowProjects(!showProjects)}
+                onKeyDown={() => setShowProjects(!showProjects)}
+                aria-label="Show/hide projects"
+                tabIndex={0}
+            >
                 <span>
                     <FaChevronDown className={!showProjects ? 'hidden-projects' : undefined} />
                 </span>
